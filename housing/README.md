@@ -15,10 +15,8 @@ photos forthcoming
   - plastic for SWR and use of GPS chip without external mounting
 - Bulkhead Connector and pig-tail
   - Decide if you want BNC(UHF/PL-259) or SMA external port
-  - search for `SMA Male to Waterproof SMA Female Bulkhead Pigtail`
-  - or search for `SMA Male to bnc male bilkhead`
+  - search for `SMA Male to SMA Female Bulkhead Pigtail`
+  - or search for `SMA Male to BNC male bulkhead`
     - PL259 to BNC Adapter on outside BNC
 
-The only hole cut is for the antenna port the remainer is stored internal. The packaging the bioenno battery comes in will come in handy for also protecting the battery in the ammo can. The RTG unit will just fit anywhere. I like to spot-weld with hot-glue-gun the GPS into the lid where it fits nicely with a litle hot glue.
-
-
+The only hole cut is for the antenna port the rest is stored internal. The packaging the bioenno battery comes in will come in handy for also protecting the battery in the ammo can. The RTG unit will just fit anywhere. I like to spot-weld with hot-glue-gun the GPS into the lid where it fits nicely with a little hot glue.
