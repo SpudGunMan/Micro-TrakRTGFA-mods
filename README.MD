@@ -1,15 +1,16 @@
 # Micro­Trak RTG -FA
-Micro­Trak RTG APRS tracker/Beacon hardware. The MicroTrak tracker line combines the TinyTrak controller with a supplied GPS and built in 10-watt frequency agile VFO / 2-meter (144 MHz - 148 MHz)transmitter. built in telemetry support to transmit supply voltage and temperature more details here..
+Micro­Trak RTG APRS tracker/Beacon hardware. The MicroTrak tracker line combines the TinyTrak controller with a supplied GPS and built in 10-watt frequency agile VFO / 2-meter (144 MHz - 148 MHz)transmitter. built in telemetry support to transmit supply voltage and temperature more details [here](http://www.byonics.com)..
 
 Also See Building a weather tight housing for the device [here](housing/README.md)
 
 # Getting Started
+Community [Support](https://groups.io/g/TinyTrak)
 
 ## GPS
 Likely best to buy the one they sell (of which there are two, mentions one has better altimeter screen printed on top visually) its a very nice [chip](https://www.mouser.com/new/lantronix/lantronix-sirfstar-iv-modules/). The MicroTrak's requires 'serial standard NEMA', not newer chip/sentences, they have a GUA cable or a USB to GPS cable to power the  factory GPS directly to PC which is recommended for using a pi to fiddle with the data, watch your port current a hub is recommended. The factory chip is fast and has nice boot-up includes some fancy technology.
 
 ## Connections power and serial
-The other item to be sure to have is cables TT-USB and a PP-RTG(included)/w null-modem(3rd party supply)
+The other item to be sure to have is [cables](http://www.byonics.com/cables) TT-USB and a PP-RTG(included)/w null-modem(3rd party supply)
  - one or all three (usb/PP-RTG+null) are needed.
  - Byonics' adds 5v to the DB9 ports for the GPS and this is used by the TT-USB as well to power the device while programming. To keep this isolated recommend using the manufacture cables which are all labeled.
  - You can use the PP-RTG with your own injected ~8v/12v and a null modem cable or adapter to your computer serial. If you power it to 12v ***have a RF load connected.***
@@ -125,7 +126,6 @@ PARM.Battery,Temp
 UNIT.Volts,Deg.F
 EQNS.0,0.0293,0,0,0.879,-­459.67
 ```
-
  - PARM line give a description of each telemetry channel
  - UNIT line gives a textual unit to describe each channel
  - EQNS line gives a A B, and C for each Analog channel (we have 3)
@@ -163,7 +163,7 @@ The [LM-355](https://www.ti.com/product/LM335) temperature sensor value is 10 mV
 Meanwhile back @ EQNS for °F
 - (Ax^2 + Bx + C) would be `A = 0, B = 0.879, and C = -459.67`
 - B= ![fmath](img/fmath.jpg)
-- LM-355 voltage(5V/1023) / 0.01V = 0.489 and then multiplied by 9/5) = 0.879 the value of B
+- LM-355 voltage(5V/1023) / 0.01V = 0.489 and then multiplied by 9/5) = `0.879` the value of B
 - Then 459.67 is subtracted. the value of C
 
 The reverse value lets say decimal telemetry value 604 is the value for the LM-355 sensor sent out the radio
@@ -177,10 +177,9 @@ The reverse value lets say decimal telemetry value 604 is the value for the LM-3
 
 The EQNS Temp `0,0.489,-­273.15`C, is calculated in the following way
 - For Celsius, Kelvin conversion is quick zero K is (0K − `273.15`) negative 273
-- B= ![cmath](img/cmath.jpg)
-- B = .489 rounded
-- LM-355 voltage(5V/1023) / 0.01V = 0.489 and then 273.15 is subtracted.
-
+- ![cmath](img/cmath.jpg)
+- B = `0.489` rounded
+- LM-355 voltage(5V/1023) / 0.01V = 0.489 and then C=273.15 is subtracted.
 
 ## CdS Photo Sensor
 EQNS here is quick and simple `0,1,0` for the CdS states to use the returned value on a x1 scale. volts to lux multiply by one.
