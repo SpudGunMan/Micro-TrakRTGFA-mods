@@ -157,14 +157,14 @@ so volts `0,0.0293,0` or `EQNS.0,0.0293,0` and we just keep stacking ...
 The EQNS Temp `0,0.879,-­459.67`°F is calculated in the following way.
 
 The [LM-355](https://www.ti.com/product/LM335) temperature sensor value is 10 mV/°K, analog linear output resolution is 5v/1023 for the 3 byte decimal telemetry. and the polynomial equation or algebraic equation or imperial EQNS to get Fahrenheit out of zero Kelvin is (0K − 273.15) we now have Celsius, multiplied by 9/5 + 32 = `-459.67`°F. 
-- so the following x = temperature sensor value, 10 mV/°K
+- so the following 0K temperature sensor value conversion to °F, 10 mV/°K
 - ![tempmath](img/tempmath.jpg)
 
 Meanwhile back @ EQNS for °F
 - (Ax^2 + Bx + C) would be `A = 0, B = 0.879, and C = -459.67`
 - B= ![fmath](img/fmath.jpg)
 - LM-355 voltage(5V/1023) / 0.01V = 0.489 and then multiplied by 9/5) = `0.879` the value of B
-- Then 459.67 is subtracted. the value of C
+- Then 459.67 is subtracted. the value of °C
 
 The reverse value lets say decimal telemetry value 604 is the value for the LM-355 sensor sent out the radio
   - radio TX a value of `604` for temp telemetry ...brrraaappp
@@ -176,7 +176,7 @@ The reverse value lets say decimal telemetry value 604 is the value for the LM-3
     - A+B+C = 71°F
 
 The EQNS Temp `0,0.489,-­273.15`C, is calculated in the following way
-- For Celsius, Kelvin conversion is quick zero K is (0K − `273.15`) negative 273
+- For Celsius, Kelvin conversion is quick zero K to °C (0K − `273.15`) negative 273°C
 - ![cmath](img/cmath.jpg)
 - B = `0.489` rounded
 - LM-355 voltage(5V/1023) / 0.01V = 0.489 and then C=273.15 is subtracted.
