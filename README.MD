@@ -193,7 +193,9 @@ I am using a CdS PCB from a "learn Arduino [kit](https://www.popsci.com/best-ard
 you can quickly test out sensor ideas with Arduino and IDE 2.0 is very nice for this.
 ![Arduino](img/arduino.jpg)
 
-Testing analog sensor, here we find the given example from adafruit uses a pull up, with values of low lux being high voltage, This wont be good for aprs.fi graphing as its upside down! we can flip to a pull-DOWN and invert the readings. so Volts @ 0 = Lux ~ 0
+Testing analog CdS sensor with an Arduino using the given example from adafruit, if your graph is upside down, wont be good for aprs.fi as its inverted! As the light level increases, the analog voltage goes up even though the resistance goes down: Vo = Vcc ( R / (R + Photocell) )
+
+That is, the voltage is proportional to the inverse of the photocell resistance which is, in turn, inversely proportional to light levels. We can flip the vcc and negative lines into the pre-fab CdS board, and invert the value to the graph. so Volts @ 0 = Lux ~ 0, each sensor will be different and using an Arduino IDE for testing this in the IDE is much faster vs usng the Byonics hardware to figure out your sensor.
 
 ![cds](img/cds-circuit.png)
 
