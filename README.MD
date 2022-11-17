@@ -10,6 +10,8 @@ Community [Support](https://groups.io/g/TinyTrak)
 Likely best to buy the one they sell (of which there are two, mentions one has better altimeter screen printed on top visually) its a very nice [chip](https://www.mouser.com/new/lantronix/lantronix-sirfstar-iv-modules/). The MicroTrak's requires 'serial standard NEMA', not newer chip/sentences, they have a GUA cable or a USB to GPS cable to power the  factory GPS directly to PC which is recommended for using a pi to fiddle with the data, watch your port current a hub is recommended. The factory chip is fast and has nice boot-up includes some fancy technology.
 
 ## Connections power and serial
+Before powering the unit, I recomend pulling it out and inspecting all solder joints and board work before you play.
+
 The other item to be sure to have is [cables](http://www.byonics.com/cables) TT-USB and a PP-RTG(included)/w null-modem(3rd party supply)
  - one or all three (usb/PP-RTG+null) are needed.
  - Byonics' adds 5v to the DB9 ports for the GPS and this is used by the TT-USB as well to power the device while programming. To keep this isolated recommend using the manufacture cables which are all labeled.
