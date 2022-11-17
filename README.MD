@@ -118,7 +118,9 @@ There is a ground connection at 2mm spacing headers, this is uncommon spacing.
 
 # EQNS
 ![eqns](img/eqns.jpg)
-[EQNS](https://en.wikipedia.org/wiki/Equation) explained in APRS.org document snip with red text overlay showing this device values.
+as shown in APRS.org document snip with red text overlay showing this device values.
+
+[EQNS](https://en.wikipedia.org/wiki/Equation) `y = aX^2 + bX + C where` X is the 3 byte decimal telemetry count in each channel in the data. y is the display value on aprs.fi, and we define A,B,C in a APRS EQNS Message,
 
 Following is for temp return in F
 ```
@@ -170,8 +172,8 @@ The reverse value lets say decimal telemetry value 604 is the value for the LM-3
   - radio TX a value of `604` for temp telemetry ...brrraaappp
   - aprs fi EQNS was prepared for displaying 604 with A=0,B=(0.879),C=(minus 459.67)
     - A=(0(604)^2) = 0
-    - B=(604*0.879)
-    - C=(604-459.67)
+    - B=(604*0.879) = 530.916
+    - C=(530.916-459.67)
     - ![tempmath2](img/tempmath2.jpg)
     - A+B+C = 71°F
 
