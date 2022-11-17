@@ -253,6 +253,7 @@ Cell Volts, Sensor Example using 12v voltage divider value.
 - [aprs.fi](https://aprs.fi/doc/guide/aprsfi-telemetry.html) telemetry doc
 - [reference](https://github.com/PhirePhly/aprs_notes/blob/master/telemetry_format.md) on telemetry format
 - advanced [calculator](https://www.symbolab.com/solver/equation-calculator)
+- http://www.aprs.org/labsats/labs08/EA467-Telemetry08c.pdf
 
 Bash telemetry blog posts
 - https://s55ma.radioamater.si/2017/07/27/send-aprs-objects-or-telemetry-via-bash/
