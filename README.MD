@@ -19,7 +19,7 @@ The other item to be sure to have is [cables](http://www.byonics.com/cables) TT-
  - You can use the TT-USB to the device directly nothing else needed, watch your port current, suggest a hub.
 
 ## Connection antenna
-The full ready to go kit, includes a mag-mount, SMA-M 2m antenna with about 6 foot of coax. The antenna will likely be damaged in shipping and its base can use a spot of gorilla glue, as it will break. It works, its retail-shipped price is around $30 in 2022-USD, to be clear..  its a $5 antenna you will use for too long, or never. They also sell a v6 dipole that is about the size of your hand. I wouldn't recommend, use your own mag-mount or ladder J-pole for terrestrial work. the stuff they up-sell works but its not worth the value long term. Antenna is not Wx rated at all, don't leave in rain, at minimal crack open the base, and fill it with glue to waterproof this cavity and keep magnet inside.
+The full ready to go kit, includes a mag-mount, SMA-M 2m antenna with about 6 foot of coax. The antenna will likely be damaged in shipping and its base can use a spot of gorilla glue, as it will break. It works, its retail-shipped price is around $30 in 2022-USD, to be clear..  its a $5 antenna you will use for too long, or never. They also sell a v6 dipole that is about the size of your hand. the stuff they up-sell works but its not worth the value long term. Antenna is not Wx rated at all, don't leave in rain, at minimal crack open the base, and fill it with glue to waterproof this cavity and keep magnet inside.
 
 Recommended upgrade [MR77SMA](https://www.diamondantenna.net/mr77sma.html)
 
@@ -30,8 +30,6 @@ The [Manual](doc/MicroTrak_RTG_FA_Manual_v1.8-2.pdf) describes the hardware and 
 The [Config Manual](doc/TinyTrak3_Config_Manual_v1.4.pdf) is also mandatory to review as it has lots of nerdy bits 'the advanced manual.'
 - A difference shipped device has the following autoTXD changes as defaults
 - ![timing](img/timing.jpg)
-
-NOTE the TinyTrak3Config v1.4.6.exe tool works under wine, additionally with box86 it works on raspberry-pi4 wine. It appears COM port mapping might need work as no ports are found however.. need to test more.
 
 ## QuickSetup
 
@@ -82,7 +80,6 @@ NOTE the TinyTrak3Config v1.4.6.exe tool works under wine, additionally with box
  - TinyTrak firmware takes in NMEA serial GPS data, and sends out APRS formatted position packets
  - WXTrak firmware takes in serial data from a weather station and sends out APRS weather packets
  - TinyPack firmware takes in any serial text terminated with carriage return, and sends that as a UI packet. It is used to do custom transmissions, plus works with the Davis weather stations that send out APRS strings natively.
-
 
 # Advanced modding
 ![mtrak](img/mtrak.jpeg)
@@ -213,6 +210,30 @@ PARM.Battery,Temp,Light
 UNIT.Volts,Deg.F,Lux
 EQNS.0,0.0293,0,0,0.879,-459.67,0,1,0
 ```
+![week](img/examplecds.jpg)
+
+## Wind Sensor
+Using the [wind](https://www.adafruit.com/product/1733) sensor, also from adafruit.
+
+- connect the black wire to power and signal ground
+- the brown wire to 7-24VDC 
+- measure the analog voltage on the blue wire
+  - The voltage will range from 0.4V (0 m/s wind) up to 2.0V (for 32.4m/s wind speed)
+
+with this data we can plug the blue wire into the signal, connect the ground/blacks. and connect brown to 12v.
+![wind](img/wind-duino.jpg)
+
+we can see that the value for 0 floats around 80 so we can subtract that 0.4V to keep us at 0 m/s all values will be a little different here depending on your configuration. this will cause -80 reading when not connected.
+
+Using a basic formula of Knot = m/s * 1.944
+
+```
+Example using F Temp
+
+PARM.Battery,Temp,Wind
+UNIT.Volts,Deg.F,Knot
+EQNS.0,0.0293,0,0,0.879,-459.67,0,1.944,-80
+```
 
 # Advanced Software: The Telemetry Definition Text
 Recommended to skip this and use APRS messages to change so you don't need to program for each sensor with a USB-TT cable.
@@ -236,6 +257,8 @@ CdS Sensor Example
 
 
  ## Advanced-Volts monitor liPo cell
+ warning there is no voltage protection know your limits!
+
  ```
 Cell Volts, Sensor Example using 12v voltage divider value.
 
