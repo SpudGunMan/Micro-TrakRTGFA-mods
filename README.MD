@@ -225,7 +225,7 @@ with this data we can plug the blue wire into the signal, connect the ground/bla
 
 we can see that the value for 0 floats around 80 so we can subtract that 0.4V to keep us at 0 m/s all values will be a little different here depending on your configuration. this will cause -80 reading when not connected.
 
-If you linearize the voltage output and convert it to bits (0V = 0 bits, 5V = 999 bits assuming HIRES), you would get:
+If you linearize the voltage output and convert it to APRS-bits (0V = 0 bits, 5V = 999 bits assuming HIRES), you would get:
 
 |Meas|Wind|int bits|using EQNS values|
 | --- | --- | --- | ---|
