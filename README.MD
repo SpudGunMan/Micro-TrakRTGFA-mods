@@ -225,14 +225,29 @@ with this data we can plug the blue wire into the signal, connect the ground/bla
 
 we can see that the value for 0 floats around 80 so we can subtract that 0.4V to keep us at 0 m/s all values will be a little different here depending on your configuration. this will cause -80 reading when not connected.
 
-Using a basic formula of Knot = m/s * 1.944
+If you linearize the voltage output and convert it to bits (0V = 0 bits, 5V = 999 bits assuming HIRES), you would get:
+
+|Meas|Wind|int bits|using EQNS values|
+| --- | --- | --- | ---|
+|0.4V|0.0 m/s|79 bits|0.0 m/s|
+|2.0V|32.4 m/s|399 bits|32.4 m/s|
+
+EQNS converting to m/s would be: 0,0.1025,-8.0
+
+m/s to knots conversion formula (1 m/s = 1.943844 knots):
+
+|Meas|Wind|int bits|using EQNS values|
+|0.4V|0.00 knots|79 bits|0.00 knots|
+|2.0V|68.98 knots|399 bits|62.97 m/s|
+
+EQNS for this setup converting to Knots would be: 0,0.1968,-15.55
 
 ```
 Example using F Temp
 
 PARM.Battery,Temp,Wind
 UNIT.Volts,Deg.F,Knot
-EQNS.0,0.0293,0,0,0.879,-459.67,0,1.944,-80
+EQNS.0,0.0293,0,0,0.879,-459.67,0,0.1968,-15.55
 ```
 
 # Advanced Software: The Telemetry Definition Text
