@@ -1,3 +1,5 @@
+![ha](img/byonics-note.jpeg)
+
 # Micro­Trak RTG -FA
 Micro­Trak RTG APRS tracker/Beacon hardware. The MicroTrak tracker line combines the TinyTrak controller with a supplied GPS and built in 10-watt frequency agile VFO / 2-meter (144 MHz - 148 MHz)transmitter. built in telemetry support to transmit supply voltage and temperature more details [here](http://www.byonics.com)..
 
